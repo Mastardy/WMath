@@ -1,0 +1,3 @@
+[submodule "Dependencies/WSTL"]
+	path = Dependencies/WSTL
+	url = https://github.com/Mastardy/WSTL.git
