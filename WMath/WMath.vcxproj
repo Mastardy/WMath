@@ -49,7 +49,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <ExecutablePath>$(VC_ExecutablePath_x64);$(CommonExecutablePath);$(SolutionDir)/Dependencies/WSTL/Sandbox;$(SolutionDir)/Dependencies/WSTL/UnitTestProject</ExecutablePath>
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)/src/;$(SolutionDir)/Dependencies/WSTL/</IncludePath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)/src/;$(SolutionDir)/Dependencies/WSTL/;$(SolutionDir)/Dependencies/FastNoiseLite/Cpp/</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>

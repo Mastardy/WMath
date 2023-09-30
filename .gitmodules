@@ -1,3 +1,6 @@
 [submodule "Dependencies/WSTL"]
 	path = Dependencies/WSTL
 	url = https://github.com/Mastardy/WSTL.git
+[submodule "Dependencies/FastNoiseLite"]
+	path = Dependencies/FastNoiseLite
+	url = https://github.com/Auburn/FastNoiseLite.git
