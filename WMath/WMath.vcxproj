@@ -89,6 +89,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\WMath\Math.hpp" />
+    <ClInclude Include="src\WMath\Random.hpp" />
     <ClInclude Include="src\WMath\Utils.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
