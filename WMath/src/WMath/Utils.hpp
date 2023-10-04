@@ -1,16 +1,16 @@
 ﻿#pragma once
 
-#define _USE_MATH_DEFINES
 #include <cmath>
 
 namespace WMath
 {
-    constexpr float PI = static_cast<float>(M_PI);
-    constexpr float HalfPI = static_cast<float>(M_PI * 0.5);
-    constexpr float QuarterPI = static_cast<float>(M_PI * 0.25);
-    constexpr float InvPI = static_cast<float>(1.0 / M_PI);
-    constexpr float Deg2Rad = static_cast<float>(M_PI / 180.0);
-    constexpr float Rad2Deg = static_cast<float>(180.0 / M_PI);
+    constexpr float PI = static_cast<float>(3.14159265358979323846);
+    constexpr float HalfPI = static_cast<float>(1.57079632679489661923);
+    constexpr float QuarterPI = static_cast<float>(0.785398163397448309616);
+    constexpr float InvPI = static_cast<float>(0.318309886183790671538);
+    constexpr float Deg2Rad = static_cast<float>(3.14159265358979323846 / 180.0);
+    constexpr float Rad2Deg = static_cast<float>(180.0 / 3.14159265358979323846);
+    constexpr float Epsilon = FLT_EPSILON;
 
     inline float Abs(float number)
     {
@@ -67,6 +67,11 @@ namespace WMath
         return cosf(number);
     }
 
+    inline bool Equals(float a, float b, float epsilon = Epsilon)
+    {
+        return Abs(a - b) <= epsilon;
+    }
+    
     inline float Exp(float number)
     {
         return expf(number);
@@ -168,6 +173,12 @@ namespace WMath
         return sinf(number);
     }
 
+    inline float SmoothStep(float start, float end, float value)
+    {
+        const float x = Clamp01((value - start) / (end - start));
+        return x * x * (3 - 2 * x);
+    }
+    
     inline float Sqrt(float number)
     {
         return sqrtf(number);
@@ -186,11 +197,5 @@ namespace WMath
     inline float ToRadians(float degrees)
     {
         return degrees * Deg2Rad;
-    }
-    
-    inline float SmoothStep(float start, float end, float value)
-    {
-        const float x = Clamp01((value - start) / (end - start));
-        return x * x * (3 - 2 * x);
     }
 }

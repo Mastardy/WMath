@@ -5,6 +5,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WSTL", "Dependencies\WSTL\W
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{6749F184-DE1B-4431-9484-24760DC46D1E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sandbox", "Sandbox\Sandbox.vcxproj", "{7DAC6E77-78B6-480B-82F1-5961C8D1BB41}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest", "UnitTest\UnitTest.vcxproj", "{C9C952C8-2EE5-4548-9AD1-D4194D114A41}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -19,6 +23,14 @@ Global
 		{37047C4B-74B7-4209-8530-9FD9B53087E3}.Debug|x64.Build.0 = Debug|x64
 		{37047C4B-74B7-4209-8530-9FD9B53087E3}.Release|x64.ActiveCfg = Release|x64
 		{37047C4B-74B7-4209-8530-9FD9B53087E3}.Release|x64.Build.0 = Release|x64
+		{7DAC6E77-78B6-480B-82F1-5961C8D1BB41}.Debug|x64.ActiveCfg = Debug|x64
+		{7DAC6E77-78B6-480B-82F1-5961C8D1BB41}.Debug|x64.Build.0 = Debug|x64
+		{7DAC6E77-78B6-480B-82F1-5961C8D1BB41}.Release|x64.ActiveCfg = Release|x64
+		{7DAC6E77-78B6-480B-82F1-5961C8D1BB41}.Release|x64.Build.0 = Release|x64
+		{C9C952C8-2EE5-4548-9AD1-D4194D114A41}.Debug|x64.ActiveCfg = Debug|x64
+		{C9C952C8-2EE5-4548-9AD1-D4194D114A41}.Debug|x64.Build.0 = Debug|x64
+		{C9C952C8-2EE5-4548-9AD1-D4194D114A41}.Release|x64.ActiveCfg = Release|x64
+		{C9C952C8-2EE5-4548-9AD1-D4194D114A41}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{37047C4B-74B7-4209-8530-9FD9B53087E3} = {6749F184-DE1B-4431-9484-24760DC46D1E}
