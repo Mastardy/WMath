@@ -2,6 +2,8 @@
 
 #include "FastNoiseLite.h"
 
+#include "WMath/Vector2.hpp"
+#include "WMath/Vector3.hpp"
 #include "WSTL/containers/Map.hpp"
 
 #include <random>
@@ -52,6 +54,16 @@ namespace WMath
             return distribution(generators[currentSeed]);
         }
 
+        static Vector2 GetVector2(float min, float max)
+        {
+            return {GetValue(min, max), GetValue(min, max)};
+        }
+
+        static Vector3 GetVector3(float min, float max)
+        {
+            return {GetValue(min, max), GetValue(min, max), GetValue(min, max)};
+        }
+        
         static float GetNoise(float x, float y)
         {
             noise.SetNoiseType(FastNoiseLite::NoiseType_OpenSimplex2S);

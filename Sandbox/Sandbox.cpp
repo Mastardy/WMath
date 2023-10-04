@@ -2,7 +2,6 @@
 
 #include "WMath/Vector2.hpp"
 
-
 int main(int argc, char* argv[])
 {
     WMath::Vector2 in(0, 0);

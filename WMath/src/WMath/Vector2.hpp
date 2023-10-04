@@ -1,8 +1,7 @@
 ﻿#pragma once
 
 #include <string>
-#include "Utils.hpp"
-#include "WSTL/containers/Array.hpp"
+#include "WMath/Utils.hpp"
 
 namespace WMath
 {
@@ -17,19 +16,13 @@ namespace WMath
         static Vector2 Left() { return {-1, 0}; }
         static Vector2 Right() { return {1, 0}; }
         
-        union
-        {
-            struct
-            {
-                float x, y;
-            };
-            WSTL::Array<float, 2> data;
-        };
-        
+        float x;
+        float y;
+
         Vector2() : x(0), y(0) {}
         Vector2(float value) : x(value), y(value) {}
         Vector2(float x, float y) : x(x), y(y) {}
-        Vector2(const Vector2& other) : x(other.x), y(other.y) {}
+        Vector2(const Vector2& other) = default;
         Vector2(Vector2&& other) noexcept : x(other.x), y(other.y)
         {
             other.x = 0;
@@ -68,8 +61,8 @@ namespace WMath
 
         int operator<=>(const Vector2& other) const
         {
-            if(WMath::Equals(Magnitude(), other.Magnitude())) return 0;
-            return Magnitude() < other.Magnitude() ? -1 : 1;
+            if(WMath::Equals(MagnitudeSquared(), other.MagnitudeSquared())) return 0;
+            return MagnitudeSquared() < other.MagnitudeSquared() ? -1 : 1;
         }
         bool operator==(const Vector2& other) const
         {
@@ -127,6 +120,17 @@ namespace WMath
             return *this;
         }
 
+        Vector2 operator/(const float scalar) const
+        {
+            return {x / scalar, y / scalar};
+        }
+        Vector2& operator/=(const float scalar)
+        {
+            x /= scalar;
+            y /= scalar;
+
+            return *this;
+        }
         Vector2 operator/(const Vector2& other) const
         {
             return {x / other.x, y / other.y};
@@ -146,20 +150,20 @@ namespace WMath
         
         float Magnitude() const
         {
-            return sqrt(x * x + y * y);
+            return Sqrt(x * x + y * y);
         }
         float Length() const
         {
             return Magnitude();
         }
 
-        float SqrMagnitude() const
+        float MagnitudeSquared() const
         {
             return x * x + y * y;
         }
-        float SqrLength() const
+        float LengthSquared() const
         {
-            return SqrMagnitude();
+            return MagnitudeSquared();
         }
 
         Vector2 Normalized() const
@@ -205,7 +209,7 @@ namespace WMath
         }
         static Vector2 Lerp(const Vector2& start, const Vector2& end, float time)
         {
-            return start * (1.0f - time) + end * time;
+            return start + (end - start) * time;
         }
         static Vector2 Scale(const Vector2& inVector, const Vector2& scalarVector)
         {
@@ -226,12 +230,12 @@ namespace WMath
         return Equals(lhs.x, rhs.x, epsilon) && Equals(lhs.y, rhs.y, epsilon);
     }
 
-    inline Vector2 operator*(const float lhs, const Vector2& rhs)
+    inline Vector2 operator*(const float scalar, const Vector2& vector)
     {
-        return rhs * lhs;
+        return vector * scalar;
     }
-    inline Vector2 operator/(const float lhs, const Vector2& rhs)
+    inline Vector2 operator/(const float scalar, const Vector2& vector)
     {
-        return { lhs / rhs.x, lhs / rhs.y };
+        return { scalar / vector.x, scalar / vector.y };
     }
 }

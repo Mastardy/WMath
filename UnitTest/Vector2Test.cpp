@@ -47,7 +47,7 @@ TEST(Vector2Test, Equals)
 TEST(Vector2Test, Magnitude)
 {
     EXPECT_TRUE(Equals(Vector2(3, 4).Magnitude(), 5));
-    EXPECT_TRUE(Equals(Vector2(3, 4).SqrMagnitude(), 25));
+    EXPECT_TRUE(Equals(Vector2(3, 4).MagnitudeSquared(), 25));
 }
 
 TEST(Vector2Test, Normalize)
