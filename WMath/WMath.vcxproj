@@ -99,6 +99,11 @@
   <ItemGroup>
     <ClInclude Include="src\WMath\Vector3.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\WMath\Random.cpp" />
+    <ClCompile Include="src\WMath\Utils.cpp" />
+    <ClCompile Include="src\WMath\Vector3.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

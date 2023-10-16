@@ -17,65 +17,29 @@ namespace WMath
         typedef unsigned long long SeedType;
         
     public:
-        static void Seed(SeedType seed)
-        {
-            currentSeed = seed;
-            if(generators.ContainsKey(seed)) return;
+        static void Seed(SeedType seed);
 
-            generators[seed] = Generator(seed);
-        }
+        static SeedType GetSeed();
 
-        static SeedType GetSeed()
-        {
-            return currentSeed;
-        }
+        static void SetNoiseSeed(int seed);
 
-        static void SetNoiseSeed(int seed)
-        {
-            noiseSeed = seed;
-            noise.SetSeed(seed);
-        }
+        static int GetNoiseSeed();
 
-        static int GetNoiseSeed()
-        {
-            return noiseSeed;
-        }
+        static int GetValue(int min, int max);
 
-        static int GetValue(int min, int max)
-        {
-            std::uniform_int_distribution distribution(min, max);
-            return distribution(generators[currentSeed]);
-        }
+        static float GetValue(float min, float max);
 
         template<typename T>
-        static T GetValue(T min, T max)
-        {
-            std::uniform_real_distribution<T> distribution(min, max);
-            return distribution(generators[currentSeed]);
-        }
+        static T GetValue(T min, T max);
 
-        static Vector2 GetVector2(float min, float max)
-        {
-            return {GetValue(min, max), GetValue(min, max)};
-        }
+        static Vector2 GetVector2(float min, float max);
 
-        static Vector3 GetVector3(float min, float max)
-        {
-            return {GetValue(min, max), GetValue(min, max), GetValue(min, max)};
-        }
-        
-        static float GetNoise(float x, float y)
-        {
-            noise.SetNoiseType(FastNoiseLite::NoiseType_OpenSimplex2S);
-            return noise.GetNoise(x, y);
-        }
+        static Vector3 GetVector3(float min, float max);
 
-        static float GetNoise(float x, float y, float z)
-        {
-            noise.SetNoiseType(FastNoiseLite::NoiseType_OpenSimplex2S);
-            return noise.GetNoise(x, y, z);
-        }
-        
+        static float GetNoise(float x, float y);
+
+        static float GetNoise(float x, float y, float z);
+
     private:
         static inline WSTL::Map<SeedType, Generator> generators = WSTL::Map<SeedType, Generator>();
         static inline SeedType currentSeed = 0;
